@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WanderWings</string>
+    <string name="getStarted">Let\'s get \nstarted...</string>
+    <string name="registerButtonText">Register</string>
+    <string name="name_of_user">Enter the name of the user</string>
+    <string name="mobile_number">Enter your mobile number</string>
+</resources>

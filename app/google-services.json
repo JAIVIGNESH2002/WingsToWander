@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "917150215348",
+    "project_id": "wanderwings-6b030",
+    "storage_bucket": "wanderwings-6b030.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917150215348:android:f2f8e1ff6e6b2c5f21fbe1",
+        "android_client_info": {
+          "package_name": "com.example.shakedetector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917150215348-frdn6111knflgks0bk8lt39qif6r6s31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shakedetector",
+            "certificate_hash": "4ccd25ccff3f21b54c0cf77ef9b675144088a6ca"
+          }
+        },
+        {
+          "client_id": "917150215348-tpsfj5de2tk01e1c4g36tcvscos3croc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqWfMZzuMD_Jm5ASaWXgiqYNjkfR3Q1No"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917150215348-tpsfj5de2tk01e1c4g36tcvscos3croc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917150215348:android:64b6f8bbb6e877a421fbe1",
+        "android_client_info": {
+          "package_name": "com.example.wanderwings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917150215348-tpsfj5de2tk01e1c4g36tcvscos3croc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqWfMZzuMD_Jm5ASaWXgiqYNjkfR3Q1No"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917150215348-tpsfj5de2tk01e1c4g36tcvscos3croc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
