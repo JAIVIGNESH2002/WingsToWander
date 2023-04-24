@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="prime">#FFA306</color>
+    <color name="lightPrime">#FFB22E</color>
     <color name="secureBlue">#0662ff</color>
 </resources>

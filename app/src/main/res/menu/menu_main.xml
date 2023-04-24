@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menuOptions"
+        app:showAsAction="always"
+        android:iconTint="@color/white"
+        android:icon="@drawable/ic_more"
+        android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/settingMenu"
+                android:icon="@drawable/ic_setting"
+                app:showAsAction="always"
+                android:title="Settings"/>
+            <item
+                android:id="@+id/settingShare"
+                android:title="Share"
+                android:icon="@drawable/ic_share"
+                app:showAsAction="always"/>
+            <item
+                android:id="@+id/settingAbout"
+                android:title="About | Tutorial"
+                android:icon="@drawable/ic_info"
+                app:showAsAction="always"/>
+        </menu>
+    </item>
+</menu>

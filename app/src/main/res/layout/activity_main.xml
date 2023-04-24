@@ -6,4 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/addPeer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:alpha="0.8"
+      android:backgroundTint="@color/prime"
+      android:contentDescription="@string/add_contact"
+      android:outlineSpotShadowColor="@color/secureBlue"
+      android:src="@drawable/ic_add_person"
+      android:tint="@android:color/white"
+      app:layout_constraintBottom_toBottomOf="@+id/bottom_navigation"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.9"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.85" />
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/bottom_navigation"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/white"
+      app:elevation="8dp"
+      app:labelVisibilityMode="labeled"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:menu="@menu/bottom_navigation_menu"
+      tools:layout_editor_absoluteX="0dp" />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recycler_view"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.appcompat.widget.LinearLayoutCompat
+      android:id="@+id/radarLinear"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/lightPrime"
+        android:elevation="4dp"
+        app:cardCornerRadius="8dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:text="You don't have any peers to keep track of !"
+          android:textColor="@color/black"
+          android:textSize="18sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/radarLottie"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_margin="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/radar_lottie" />
+  </androidx.appcompat.widget.LinearLayoutCompat>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/chainWing"
+      android:visibility="gone"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:clickable="true"
+      android:backgroundTint="@color/secureBlue"
+      app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.93"
+      app:srcCompat="@drawable/ic_mpin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
