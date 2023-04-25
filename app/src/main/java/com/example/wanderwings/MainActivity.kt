@@ -170,7 +170,10 @@ class MainActivity : AppCompatActivity() {
 
                     true
                 }
-                R.id.search -> {
+                R.id.placeHolder->{
+                    true
+                }
+                R.id.placeHolder -> {
                     // Handle search menu item click
                     true
                 }

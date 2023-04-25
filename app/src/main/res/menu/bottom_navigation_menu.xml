@@ -5,11 +5,11 @@
         android:icon="@drawable/ic_people"
         android:title="Peers" />
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/ic_cont"
-        android:title="Emergency contacts" />
+        android:id="@+id/placeHolder"
+        android:title=""
+        android:icon="@drawable/ic_crisis"/>
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/ic_history"
-        android:title="History" />
+        android:icon="@drawable/ic_cont"
+        android:title="Emergency contacts" />
 </menu>
