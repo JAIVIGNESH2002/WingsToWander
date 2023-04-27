@@ -24,6 +24,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -79,6 +80,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.BODY_SENSORS) != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted, request it
+            ActivityCompat.requestPermissions(this,
+                arrayOf(android.Manifest.permission.BODY_SENSORS),
+                101)
+        }
+
+//        if (ContextCompat.checkSelfPermission(this,
+//                android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+//
+//            // Permission is not granted, request it
+//            ActivityCompat.requestPermissions(this,
+//                arrayOf(android.Manifest.permission.POST_NOTIFICATIONS),
+//                101)
+//        }
+
+        //start shake detector service
+        val intent = Intent(this, ShakeDetectorService::class.java)
+        startService(intent)
+
 
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
@@ -113,9 +136,18 @@ class MainActivity : AppCompatActivity() {
                101)
         }
 
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted, request it
+            ActivityCompat.requestPermissions(this,
+                arrayOf(android.Manifest.permission.SEND_SMS),
+                101)
+        }
+
+
         contactPickerContract = registerForActivityResult(ActivityResultContracts.PickContact()) { contactUri ->
             if (contactUri != null) {
-
                 val projection = arrayOf(ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.Contacts._ID,ContactsContract.Contacts.LOOKUP_KEY)
                 val cursor = contentResolver.query(
                     contactUri,
@@ -166,30 +198,30 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
-                    // Handle home menu item click
+                    findViewById<FloatingActionButton>(R.id.addPeer).visibility = View.VISIBLE
+                    val fragmentManager = supportFragmentManager
+                    for (fragment in fragmentManager.fragments) {
+                        fragmentManager.beginTransaction().remove(fragment).commit()
+                    }
 
-                    true
-                }
-                R.id.placeHolder->{
                     true
                 }
                 R.id.placeHolder -> {
-                    // Handle search menu item click
+                    // Create a new instance of MyFragment
+                    val fragment = SosFragment()
+                    // Add the fragment to the fragment_container
+                    addPeer.visibility = View.GONE
+                    supportFragmentManager.beginTransaction()
+                        .add(R.id.container, fragment).commit()
                     true
                 }
                 R.id.profile -> {
-                    val notification = NotificationCompat.Builder(this, "fake_call_channel")
-                        .setContentTitle("Incoming call from John Doe")
-                        .setSmallIcon(R.drawable.ic_phone)
-                        .setColor(ContextCompat.getColor(this, R.color.prime))
-                        .setLights(Color.RED, 1000, 1000)
-                        .setCategory(NotificationCompat.CATEGORY_CALL)
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .build()
-
-                    val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                    val NOTIFICATION_ID = 100;
-                    notificationManager.notify(NOTIFICATION_ID, notification)
+                    // Create a new instance of MyFragment
+                    addPeer.visibility = View.GONE
+                    val fragment = EmergencyContacts()
+                    // Add the fragment to the fragment_container
+                    supportFragmentManager.beginTransaction()
+                        .add(R.id.container, fragment).commit()
                     true
                 }
                 else -> false
@@ -226,6 +258,13 @@ class MainActivity : AppCompatActivity() {
         })
         if (show) fab.visibility = View.VISIBLE
         animator.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val intent = Intent(this, ShakeDetectorService::class.java)
+        stopService(intent)
+
     }
 
 }

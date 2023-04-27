@@ -14,6 +14,7 @@ public class GetLocation {
     static Geocoder geocoder;
     static String addressString = "";
     public static String getLocation(double latitude, double longitude,Context c){
+        addressString = "";
         geocoder = new Geocoder(c, Locale.getDefault());
         List<Address> addresses = null;
         try {
@@ -31,7 +32,6 @@ public class GetLocation {
             for (int i = 0; i <= address.getMaxAddressLineIndex(); i++) {
                 addressString += address.getAddressLine(i) + "\n";
             }
-
 
         }
         return addressString;

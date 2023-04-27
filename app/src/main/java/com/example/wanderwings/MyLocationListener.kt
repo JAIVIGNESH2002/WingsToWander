@@ -65,8 +65,8 @@ class MyLocationListener(private val context: Context) : LocationListener {
         // Handle location change
         val latitude = location.latitude
         val longitude = location.longitude
-
-        Log.i("locTag",GetLocation.getLocation(latitude,longitude,context))
+        SosFragment.latitude = latitude
+        SosFragment.longitude = longitude
     }
 
     override fun onProviderDisabled(provider: String) {}

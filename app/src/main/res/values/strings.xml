@@ -6,4 +6,6 @@
     <string name="mobile_number">Enter your mobile number</string>
     <string name="add_contact">Add contact</string>
     <string name="safety_net">Wandering with your loved ones / people you care. Tap to set up a safety net perimeter.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
