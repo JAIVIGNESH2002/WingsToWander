@@ -98,7 +98,7 @@ class ShakeDetectorService : Service(), SensorEventListener {
             // Intent for "OK" button click action
             val okIntent = Intent(this, MainActivity    ::class.java)
             okIntent.action = "OK_ACTION"
-            val okPendingIntent = PendingIntent.getActivity(this, 0, okIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            val okPendingIntent = PendingIntent.getBroadcast(this, 0, okIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
 // Intent for "Cancel" button click action
             val cancelIntent = Intent(this, NotificationBroadCastReceiver::class.java)
@@ -131,8 +131,7 @@ class ShakeDetectorService : Service(), SensorEventListener {
                         notificationBuilder.setContentText("SOS is being sent")
                         notificationBuilder.setAutoCancel(true)
                         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build())
-
-
+                        SosMessage.sendSos()
                     }
                 }.start()            }
             lastX = acceleration

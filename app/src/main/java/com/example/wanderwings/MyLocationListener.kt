@@ -65,6 +65,8 @@ class MyLocationListener(private val context: Context) : LocationListener {
         // Handle location change
         val latitude = location.latitude
         val longitude = location.longitude
+        MainActivity.lat =latitude;
+        MainActivity.lon = longitude
         SosFragment.latitude = latitude
         SosFragment.longitude = longitude
     }

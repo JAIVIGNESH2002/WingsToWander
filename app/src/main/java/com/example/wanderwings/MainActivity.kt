@@ -50,6 +50,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var lotAnime : LinearLayoutCompat
 
+    companion object{
+        var lat:Double = 0.0
+        var lon:Double = 0.0
+
+    }
+
+
     private val CON_NAME: Int = 0
     private val CON_ID: Int = 1
 
